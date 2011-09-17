@@ -1,19 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 
 namespace euler_csharp {
     public class Prime {
-        public static bool IsPrime(int x) {
-            if (x == 1 || x == 2 || x == 3 || x == 5 || x == 7) return true;
-            bool prime = true;
-            for (int i = 2; i < x; i++) {
-                if (x % i == 0) {
-                    prime = false;
-                    break;
+        public static bool IsPrime(int candidate) {
+            if ((candidate & 1) != 0) {
+                int limit = (int)Math.Sqrt(candidate);
+                for (int divisor = 3; divisor <= limit; divisor += 2) {
+                    if ((candidate % divisor) == 0)
+                        return false;
                 }
+                return true;
             }
-            return prime;
+            return (candidate == 2);
 
         }
         public static IEnumerable<int> Sequence() {
