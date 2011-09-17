@@ -6,7 +6,7 @@ using System.Linq;
 namespace euler_csharp {
     class Program {
         static void Main() {
-            Console.WriteLine(Problem008.Solution());
+            Console.WriteLine(Problem009.Solution());
         }
     }
 }
