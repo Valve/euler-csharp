@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 namespace euler_csharp {
     public class Number {
@@ -50,6 +51,20 @@ namespace euler_csharp {
                 }
                 yield return number;
             }
+        }
+
+        public static IEnumerable<BigInteger> BigIntegerRange(int start, int count) {
+            for(int i = start;i<=count;i++) {
+                yield return new BigInteger(i);
+            }
+        }
+
+        public static BigInteger Factorial(int n) {
+            return BigIntegerRange(1,n).Aggregate<BigInteger, BigInteger>(1, (a, b) => a * b);
+        }
+
+        public static BigInteger MultisetPermutations(int n) {
+            return Factorial(n) / (Factorial(n / 2) * Factorial(n / 2));
         }
     }
 }
