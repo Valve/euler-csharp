@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 
 namespace euler_csharp {
-    class Problem014 {
+    public class Problem014 {
+        public static int Solution() {
+            return Enumerable.Range(1, 999999).Select(x => new {Number = x, Count = Number.Collatz(x).Count()}).
+                OrderByDescending(x => x.Count).First().Number;
+        }
     }
 }
