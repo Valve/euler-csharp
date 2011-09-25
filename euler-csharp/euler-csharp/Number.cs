@@ -39,17 +39,18 @@ namespace euler_csharp {
             }
         }
 
-        public static IEnumerable<int> Collatz(int number) {
-            yield return number;
+        public static IEnumerable<long> Collatz(long number) {
             while (number > 1) {
+                yield return number;
                 if (number % 2 == 0) {
                     number /= 2;
                 }
                 else {
                     number = number * 3 + 1;
                 }
-                yield return number;
             }
+            yield return number;
+
         }
     }
 }
