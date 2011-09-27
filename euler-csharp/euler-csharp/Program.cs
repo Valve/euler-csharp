@@ -5,7 +5,7 @@ using System.Numerics;
 namespace euler_csharp {
     internal class Program {
         private static void Main() {
-            Console.WriteLine(Problem019.Solution());
+            Console.WriteLine(Problem020.Solution());
         }
     }
 }
