@@ -5,7 +5,8 @@ using System.Numerics;
 namespace euler_csharp {
     internal class Program {
         private static void Main() {
-            Console.WriteLine(Problem020.Solution());
+            var isam = Number.IsAmicableNumber(220);
+            Console.WriteLine(Problem021.Solution());
         }
     }
 }

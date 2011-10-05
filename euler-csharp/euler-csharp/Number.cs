@@ -55,17 +55,32 @@ namespace euler_csharp {
         }
 
         public static IEnumerable<BigInteger> BigIntegerRange(int start, int count) {
-            for(int i = start;i<=count;i++) {
+            for (int i = start; i <= count; i++) {
                 yield return new BigInteger(i);
             }
         }
 
         public static BigInteger Factorial(int n) {
-            return BigIntegerRange(1,n).Aggregate<BigInteger, BigInteger>(1, (a, b) => a * b);
+            return BigIntegerRange(1, n).Aggregate<BigInteger, BigInteger>(1, (a, b) => a * b);
         }
 
         public static BigInteger MultisetPermutations(int n) {
             return Factorial(n) / (Factorial(n / 2) * Factorial(n / 2));
+        }
+
+        public static IEnumerable<int> Divisors(int n) {
+            int divisor = 1;
+            while (divisor <= n/2) {
+                if (n % divisor == 0) yield return divisor;
+                ++divisor;
+            }
+        }
+
+        public static bool IsAmicableNumber(int n) {
+            int sumOfDivisors = Divisors(n).Sum();
+            if (sumOfDivisors == n) return false;
+            int amicableSum = Divisors(sumOfDivisors).Sum();
+            return n == amicableSum;
         }
     }
 }
